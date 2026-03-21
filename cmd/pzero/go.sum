@@ -153,8 +153,6 @@ github.com/jzero-io/desc v1.2.0 h1:choR7IQZvjm8jw2ZlUoQdPCqTvvMQiFRCoaEJAMzdLs=
 github.com/jzero-io/desc v1.2.0/go.mod h1:gav1fZ49+rsEjT/5MUNp6ueyNFuX0lDKGyzIM6NrB+E=
 github.com/jzero-io/go_fmt v0.0.0-20250905015347-1a45352494b7 h1:XamNaWUxHlOd7ytrgR1gwR2O0vo02gMKaTroXLXrh0w=
 github.com/jzero-io/go_fmt v0.0.0-20250905015347-1a45352494b7/go.mod h1:Wupl/J9DdDywVAOC5ExsbfkET0aYuNLhZPlpBF8+OnE=
-github.com/polpo666/pzero v1.3.1 h1:O8qpzw4yTtKumEkhbukuMNvPWxWtwew9cw9g6UQMUp8=
-github.com/polpo666/pzero v1.3.1/go.mod h1:qH9i7iGwk9FWndrUa4GbVT/hn/VLt1wXrFl15ictFA4=
 github.com/kevinburke/ssh_config v1.2.0 h1:x584FjTGwHzMwvHx18PXxbBVzfnxogHaAReU4gf13a4=
 github.com/kevinburke/ssh_config v1.2.0/go.mod h1:CT57kijsi8u/K/BOFA39wgDQJ9CxiF4nAY/ojJ6r6mM=
 github.com/klauspost/compress v1.18.1 h1:bcSGx7UbpBqMChDtsF28Lw6v/G94LPrrbMbdC3JH2co=
@@ -211,6 +209,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 h1:Jamvg5psRIccs7FGNTlIRMkT8wgtp5eCXdBlqhYGL6U=
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/polpo666/pzero v1.3.2 h1:f6MBn3zZZI2Tags8X6Xos3pnUMv0HnmUOhlkX9WsoKM=
+github.com/polpo666/pzero v1.3.2/go.mod h1:qH9i7iGwk9FWndrUa4GbVT/hn/VLt1wXrFl15ictFA4=
 github.com/prashantv/gostub v1.1.0 h1:BTyx3RfQjRHnUWaGF9oQos79AlQ5k8WNktv7VGvVH4g=
 github.com/prashantv/gostub v1.1.0/go.mod h1:A5zLQHz7ieHGG7is6LLXLz7I8+3LZzsrV0P1IAHhP5U=
 github.com/prometheus/client_golang v1.23.2 h1:Je96obch5RDVy3FDMndoUsjAhG5Edi49h0RJWRi/o0o=
