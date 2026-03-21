@@ -37,7 +37,3 @@ docker buildx create --use --name=mybuilder --driver docker-container --driver-o
 # build and load
 docker buildx build --platform linux/{{ .GoArch }} --progress=plain -t {{ .APP }}:latest . --load
 ```
-
-## Documents
-
-https://docs.pzero.io
