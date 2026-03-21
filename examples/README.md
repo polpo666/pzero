@@ -1,1 +1,1 @@
-Rich examples of jzero usage view repository [**https://github.com/jzero-io/examples**](https://github.com/jzero-io/examples)
+Examples for pzero can be maintained in this directory or moved to a dedicated repository later.
