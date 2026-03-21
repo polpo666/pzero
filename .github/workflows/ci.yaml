@@ -1,4 +1,4 @@
-name: jzero-ci
+name: pzero-ci
 
 on:
   push:
@@ -23,13 +23,13 @@ jobs:
 
       - name: Install Tool
         run: |
-          cd cmd/jzero
+          cd cmd/pzero
           go install
-          jzero check
+          pzero check
 
       - name: format go
         run: |
-         jzero format -d --git-change=false 
+	        pzero format -d --git-change=false 
 
       - uses: actions/checkout@v6
       - name: golangci-lint

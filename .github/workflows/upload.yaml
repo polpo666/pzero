@@ -1,4 +1,4 @@
-name: jzero-upload-examples-ci
+name: pzero-upload-examples-ci
 
 on:
   push:
@@ -22,9 +22,9 @@ jobs:
         with:
           go-version: '1.24.3'
 
-      - name: Install Jzero and Grum
+      - name: Install Pzero and Grum
         run: |
-          cd cmd/jzero
+          cd cmd/pzero
           go install
           go install github.com/jaronnie/grum@latest
 
@@ -36,23 +36,23 @@ jobs:
           git config user.name "dependabot[bot]"
           git config user.email "49699333+dependabot[bot]@users.noreply.github.com"
           rm -rf simpleapi
-          jzero new simpleapi
+          pzero new simpleapi
           cd simpleapi
-          jzero add api user
-          jzero gen
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add api user
+          pzero gen
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
-          jzero new helloworld --serverless --mono
+          pzero new helloworld --serverless --mono
           cd plugins/helloworld
-          jzero add api helloworld
-          jzero gen
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add api helloworld
+          pzero gen
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
           cd ../..
-          jzero serverless build
+          pzero serverless build
           go mod tidy
-          jzero gen swagger
-          jzero format --git-change=false
+          pzero gen swagger
+          pzero format --git-change=false
           go run main.go version
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(simpleapi): update simpleapi"
@@ -61,15 +61,15 @@ jobs:
           cd ..
           
           rm -rf simpleapi-with-model-redis
-          jzero new simpleapi-with-model-redis --features model,redis
+          pzero new simpleapi-with-model-redis --features model,redis
           cd simpleapi-with-model-redis
-          jzero add api user
-          jzero add sql user
-          jzero gen
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add api user
+          pzero add sql user
+          pzero gen
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
-          jzero gen swagger
-          jzero format --git-change=false
+          pzero gen swagger
+          pzero format --git-change=false
           go run main.go version
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(simpleapi-with-model-redis): update simpleapi-with-model-redis"
@@ -78,24 +78,24 @@ jobs:
           cd ..
           
           rm -rf simplegateway
-          jzero new simplegateway --frame gateway
+          pzero new simplegateway --frame gateway
           cd simplegateway
-          jzero add proto user
-          jzero gen
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add proto user
+          pzero gen
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
-          jzero new helloworld --frame gateway --serverless --mono
+          pzero new helloworld --frame gateway --serverless --mono
           cd plugins/helloworld
-          jzero add proto helloworld
-          jzero gen
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add proto helloworld
+          pzero gen
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
           cd ../..
-          jzero serverless build
+          pzero serverless build
           go mod tidy
-          jzero gen swagger
-          jzero gen zrpcclient
-          jzero format --git-change=false
+          pzero gen swagger
+          pzero gen zrpcclient
+          pzero format --git-change=false
           go run main.go version
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(simplegateway): update simplegateway"
@@ -104,16 +104,16 @@ jobs:
           cd ..
           
           rm -rf simplegateway-with-model-redis
-          jzero new simplegateway-with-model-redis --frame gateway --features model,redis
+          pzero new simplegateway-with-model-redis --frame gateway --features model,redis
           cd simplegateway-with-model-redis
-          jzero add proto user
-          jzero add sql user
-          jzero gen
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add proto user
+          pzero add sql user
+          pzero gen
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
-          jzero gen swagger
-          jzero gen zrpcclient
-          jzero format --git-change=false
+          pzero gen swagger
+          pzero gen zrpcclient
+          pzero format --git-change=false
           go run main.go version
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(simplegateway-with-model-redis): update simplegateway-with-model-redis"
@@ -122,23 +122,23 @@ jobs:
           cd ..
           
           rm -rf simplerpc
-          jzero new simplerpc --frame rpc
+          pzero new simplerpc --frame rpc
           cd simplerpc
-          jzero add proto user
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add proto user
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
-          jzero new helloworld --frame rpc --serverless --mono
+          pzero new helloworld --frame rpc --serverless --mono
           cd plugins/helloworld
-          jzero add proto helloworld
-          jzero gen
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add proto helloworld
+          pzero gen
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
           cd ../..
-          jzero serverless build
+          pzero serverless build
           go mod tidy
-          jzero gen swagger
-          jzero gen zrpcclient
-          jzero format --git-change=false
+          pzero gen swagger
+          pzero gen zrpcclient
+          pzero format --git-change=false
           go run main.go version
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(simplerpc): update simplerpc"
@@ -147,16 +147,16 @@ jobs:
           cd ..
           
           rm -rf simplerpc-with-model-redis
-          jzero new simplerpc-with-model-redis --frame rpc --features model,redis
+          pzero new simplerpc-with-model-redis --frame rpc --features model,redis
           cd simplerpc-with-model-redis
-          jzero add proto user
-          jzero add sql user
-          jzero gen
-          go get github.com/jzero-io/jzero@${{ github.sha }}
+          pzero add proto user
+          pzero add sql user
+          pzero gen
+          go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
-          jzero gen swagger
-          jzero gen zrpcclient
-          jzero format --git-change=false
+          pzero gen swagger
+          pzero gen zrpcclient
+          pzero format --git-change=false
           go run main.go version
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(simplerpc-with-model-redis): update simplerpc-with-model-redis"
