@@ -399,4 +399,3 @@ service UserService {
 
 - [protovalidate Documentation](https://buf.build/docs/protovalidate/)
 - [CEL Language Specification](https://github.com/google/cel-spec)
-- [jzero Documentation](https://docs.pzero.io)

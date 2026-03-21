@@ -450,4 +450,3 @@ service UserService {
 
 - [Proto File Structure](proto-file-structure.md) - Basic proto file setup
 - [Proto Field Validation](proto-validation.md) - Adding validation to proto messages
-- [jzero Documentation](https://docs.pzero.io) - Official documentation

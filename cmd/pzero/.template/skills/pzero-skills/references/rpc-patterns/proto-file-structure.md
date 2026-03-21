@@ -182,4 +182,3 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 
 - [Proto Field Validation](proto-validation.md) - Adding validation to proto messages
 - [Proto Middleware](proto-middleware.md) - Using middleware with proto services
-- [jzero Documentation](https://docs.pzero.io) - Official documentation

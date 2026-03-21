@@ -201,7 +201,6 @@ myproject/
 
 ## Resources
 
-- **Official documentation**: [docs.pzero.io](https://docs.pzero.io)
 - **GitHub repository**: [polpo666/pzero](https://github.com/polpo666/pzero)
-- **Examples**: [jzero-io/examples](https://github.com/jzero-io/examples)
+- **Examples**: [polpo666/examples](https://github.com/polpo666/examples)
 - **Base framework**: [zeromicro/go-zero](https://github.com/zeromicro/go-zero)

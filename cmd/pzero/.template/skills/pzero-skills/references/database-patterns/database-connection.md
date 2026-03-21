@@ -191,5 +191,3 @@ model := model.NewModel(sqlxConn, modelx.WithCachedConn(cachedConn))
 - [Model Generation](./model-generation.md) - Learn how to generate models
 - [CRUD Operations](./crud-operations.md) - Database operations patterns
 - [Best Practices](./best-practices.md) - Database usage guidelines
-
-For complete documentation on modelx, see [modelx Documentation](https://docs.pzero.io/component/modelx).
