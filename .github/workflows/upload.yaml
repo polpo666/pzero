@@ -13,7 +13,7 @@ jobs:
     name: upload
     runs-on: ubuntu-latest
     env:
-      EXAMPLES_REPO: https://github.com/${{ github.repository_owner }}/examples
+      EXAMPLES_REPO: https://github.com/${{ github.repository_owner }}/pzero-examples
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-go@v6
         with:
-          go-version: '1.24.3'
+          go-version: '1.26.1'
 
       - name: Install Pzero and Grum
         run: |

@@ -12,11 +12,10 @@ import (
 	"github.com/zeromicro/go-zero/rest"
 
 	"{{ .Module }}/internal/config"
-	"{{ .Module }}/internal/custom"
 	"{{ .Module }}/internal/middleware"
 	"{{ .Module }}/internal/handler"
 	"{{ .Module }}/internal/svc"
-	{{ if not .Serverless }}"{{ .Module }}/plugins"{{end}}
+	"{{ .Module }}/plugins"
 )
 
 var serverCmd = &cobra.Command{
@@ -46,8 +45,6 @@ var serverCmd = &cobra.Command{
 
 		// create rest server
 		restServer := rest.MustNewServer(svcCtx.ConfigCenter.MustGetConfig().Rest.RestConf)
-		// create custom server
-		customServer := custom.New()
 
 		// register auto generated routes
 		handler.RegisterHandlers(restServer, svcCtx)
@@ -56,12 +53,11 @@ var serverCmd = &cobra.Command{
 		// register middleware
 		middleware.Register(restServer)
 
-	    {{ if not .Serverless }}// load plugins
-	    plugins.LoadPlugins(restServer, svcCtx){{end}}
+	    // load plugins
+	    plugins.LoadPlugins(restServer, svcCtx)
 
 		group := service.NewServiceGroup()
 		group.Add(restServer)
-		group.Add(customServer)
 
         logx.Infof("Starting rest server at %s:%d...", cc.MustGetConfig().Rest.Host, cc.MustGetConfig().Rest.Port)
 		group.Start()
