@@ -3,18 +3,18 @@ import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
 
 export default defineUserConfig({
-  base: "/",
+  base: "/pzero/",
 
   locales: {
     "/": {
       lang: "en-US",
-      title: "Jzero Framework",
-      description: "Jzero docs",
+      title: "Pzero Framework",
+      description: "Pzero docs",
     },
     "/zh-CN/": {
       lang: "zh-CN",
-      title: "Jzero Framework",
-      description: "Jzero docs",
+      title: "Pzero Framework",
+      description: "Pzero docs",
     },
   },
 

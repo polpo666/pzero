@@ -5,22 +5,22 @@ import { enSidebarConfig, zhSidebarConfig } from "./sidebar/index.js";
 
 // @ts-ignore
 export default hopeTheme({
-  hostname: "https://docs.jzero.io",
+  hostname: "https://polpo666.github.io/pzero",
 
   author: {
-    name: "jaronnie",
-    url: "https://github.com/jaronnie",
+    name: "polpo666",
+    url: "https://github.com/polpo666",
   },
 
   iconAssets: "iconify",
 
-  copyright: 'Copyright © 2024-2026 jzero-io',
+  copyright: 'Copyright © 2024-2026 polpo666',
 
   // made by https://gopherize.me
   // favicon.ico made by https://www.bitbug.net
-  logo: "https://oss.jaronnie.com/jzero.svg",
+  logo: "/favicon.ico",
 
-  repo: "jzero-io/jzero",
+  repo: "polpo666/pzero",
 
   docsDir: "docs/src",
 
@@ -61,14 +61,6 @@ export default hopeTheme({
       // tag: "tag",
       // star: "star",
     },
-    comment: {
-      provider: "Giscus",
-      repo: "jzero-io/jzero",
-      repoId: "R_kgDOLq1_9Q",
-      category: "Announcements",
-      categoryId: "DIC_kwDOLq1_9c4Cf5lp",
-    },
-
     components: {
       components: ["Badge", "VPCard"],
     },

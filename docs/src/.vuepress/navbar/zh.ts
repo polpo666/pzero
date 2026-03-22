@@ -4,18 +4,13 @@ import { navbar } from "vuepress-theme-hope";
 // @ts-ignore
 export const zhNavbar = navbar([
   {
-    link: "https://docs.jzero.io/blog/",
+    link: "/zh-CN/blog/",
     text: "博客",
     icon: "fluent-mdl2:blog"
   },
   {
-    link: "https://github.com/jzero-io/examples",
+    link: "https://github.com/polpo666/pzero/tree/main/examples",
     text: "代码示例",
     icon: "vscode-icons:file-type-go"
-  },
-  {
-    link: "https://github.com/jzero-io/jzero-admin",
-    text: "jzero 后台管理系统",
-    icon: "icon-park-outline:system"
   },
 ]);
