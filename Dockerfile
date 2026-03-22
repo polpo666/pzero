@@ -9,7 +9,7 @@ LABEL \
   org.opencontainers.image.documentation="https://github.com/polpo666/pzero#readme" \
   org.opencontainers.image.source="https://github.com/polpo666/pzero" \
   org.opencontainers.image.licenses="MIT" \
-  maintainer="jaronnie <jaron@jaronnie.com>"
+  maintainer="polpo666 <polpo666@gmail.com>"
 
 WORKDIR /app
 
