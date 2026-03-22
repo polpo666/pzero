@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide outlines best practices for working with databases in jzero applications to ensure security, performance, and maintainability.
+This guide outlines best practices for working with databases in pzero applications to ensure security, performance, and maintainability.
 
 ## ⚠️⚠️⚠️ CRITICAL RULES - MUST FOLLOW ⚠️⚠️⚠️
 

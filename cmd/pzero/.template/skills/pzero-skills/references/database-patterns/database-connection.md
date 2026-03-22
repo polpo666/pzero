@@ -2,7 +2,7 @@
 
 ## Overview
 
-jzero's `modelx` package provides database connection functionality with support for MySQL, PostgreSQL, and SQLite. You don't need to import database drivers manually - jzero handles this automatically.
+pzero's `modelx` package provides database connection functionality with support for MySQL, PostgreSQL, and SQLite. You don't need to import database drivers manually - pzero handles this automatically.
 
 ## Configuration
 

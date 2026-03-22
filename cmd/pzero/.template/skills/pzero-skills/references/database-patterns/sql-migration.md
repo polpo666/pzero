@@ -2,7 +2,7 @@
 
 ## Overview
 
-When modifying database schemas in jzero, you MUST create corresponding migration files in `desc/sql_migration/` to track changes and enable rollbacks.
+When modifying database schemas in pzero, you MUST create corresponding migration files in `desc/sql_migration/` to track changes and enable rollbacks.
 
 ## ⚠️ Critical Rules
 

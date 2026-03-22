@@ -2,11 +2,11 @@
 
 ## Overview
 
-jzero supports multi-proto management (goctl native tool does not support this). When automatically generating code, jzero automatically recognizes files under `desc/proto/` and automatically registers them to zrpc.
+pzero supports multi-proto management (goctl native tool does not support this). When automatically generating code, pzero automatically recognizes files under `desc/proto/` and automatically registers them to zrpc.
 
-jzero also supports proto field validation by default.
+pzero also supports proto field validation by default.
 
-## jzero Framework Philosophy
+## pzero Framework Philosophy
 
 **Different modules should be separated into different proto files**
 
@@ -136,7 +136,7 @@ pzero gen
 
 ### Multi-Proto Support
 
-Unlike goctl, jzero supports multiple proto files and automatically:
+Unlike goctl, pzero supports multiple proto files and automatically:
 - Scans `desc/proto/` directory
 - Generates code for all proto files
 - Registers all services to zrpc server

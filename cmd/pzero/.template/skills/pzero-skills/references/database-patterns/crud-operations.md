@@ -2,7 +2,7 @@
 
 ## Overview
 
-jzero automatically generates comprehensive CRUD methods for your models. **Use these generated methods for basic operations** - only write custom SQL for advanced scenarios that generated methods can't handle.
+pzero automatically generates comprehensive CRUD methods for your models. **Use these generated methods for basic operations** - only write custom SQL for advanced scenarios that generated methods can't handle.
 
 ## Generated Methods Overview
 

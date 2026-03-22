@@ -2,11 +2,11 @@
 
 ## Overview
 
-jzero supports proto field validation using [protovalidate](https://buf.build/docs/protovalidate/). This allows you to define validation rules directly in your proto files, ensuring data integrity at the RPC layer.
+pzero supports proto field validation using [protovalidate](https://buf.build/docs/protovalidate/). This allows you to define validation rules directly in your proto files, ensuring data integrity at the RPC layer.
 
 ## Validation with protovalidate
 
-jzero uses the `buf/validate/validate.proto` package to provide comprehensive field validation capabilities.
+pzero uses the `buf/validate/validate.proto` package to provide comprehensive field validation capabilities.
 
 ## Basic Example
 
@@ -257,7 +257,7 @@ message ConditionalRequest {
 
 ## Error Handling
 
-When validation fails, jzero returns detailed error messages:
+When validation fails, pzero returns detailed error messages:
 
 ```go
 type ValidationError struct {

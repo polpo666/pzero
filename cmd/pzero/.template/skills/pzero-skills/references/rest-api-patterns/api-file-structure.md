@@ -10,7 +10,7 @@
 info(
     title: "User API"
     desc: "User management API"
-    author: "jzero"
+    author: "pzero"
     version: "v1"
     go_package: "user"  // ‼️ REQUIRED - MUST set go_package
 )
@@ -107,7 +107,7 @@ service user-api {
 
 ### Three-Layer Pattern
 
-jzero REST APIs follow a strict three-layer architecture:
+pzero REST APIs follow a strict three-layer architecture:
 
 1. **Handler Layer** (`internal/handler/`) - HTTP concerns only
 2. **Logic Layer** (`internal/logic/`) - Business logic implementation
@@ -186,7 +186,7 @@ type (
 info(
     title: "User API"
     desc: "User management API"
-    author: "jzero"
+    author: "pzero"
     version: "v1"
     go_package: "user"  // ‼️ REQUIRED
 )
