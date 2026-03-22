@@ -229,7 +229,7 @@ var newCmd = &cobra.Command{
 
 		// for gen persistent flags
 		if config.C.Style == "" {
-			config.C.Style = "gozero"
+			config.C.Style = "go_zero"
 		}
 		if config.C.Home == "" {
 			config.C.Home = filepath.Join(config.C.Wd(), ".template")

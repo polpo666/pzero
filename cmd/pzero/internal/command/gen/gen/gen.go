@@ -25,8 +25,16 @@ import (
 
 func Run() error {
 	// 兼容之前的 gen style
-	if config.C.Gen.Style != "" && config.C.Gen.Style != "gozero" {
-		config.C.Style = config.C.Gen.Style
+	if config.C.Style == "gozero" {
+		config.C.Style = "go_zero"
+	}
+
+	if config.C.Gen.Style != "" {
+		if config.C.Gen.Style == "gozero" {
+			config.C.Style = "go_zero"
+		} else {
+			config.C.Style = config.C.Gen.Style
+		}
 	}
 
 	if !config.C.Quiet {

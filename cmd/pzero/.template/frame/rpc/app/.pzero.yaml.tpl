@@ -1,3 +1,3 @@
-{{ if ne .Style "gozero" }}style: {{.Style}}
+{{ if ne .Style "go_zero" }}style: {{.Style}}
 
 {{ end }}

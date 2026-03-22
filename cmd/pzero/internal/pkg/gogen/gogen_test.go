@@ -15,7 +15,7 @@ func TestGenRoutesString(t *testing.T) {
 	assert.Nil(t, err)
 
 	routesString, err := GenRoutesString("example", "example", &config.Config{
-		NamingFormat: "gozero",
+		NamingFormat: "go_zero",
 	}, parse)
 	assert.NotNil(t, routesString)
 	assert.Nil(t, err)
