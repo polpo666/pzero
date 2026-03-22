@@ -1,53 +1,53 @@
 ---
-title: "Free Your Hands! jzero Boosts Go Development Efficiency 10x"
+title: 解放双手！jzero 让 Go 开发效率提升 10 倍
 icon: streamline-ultimate:blog-blogger-logo
 ---
 
-As a developer, have you ever encountered these problems:
+作为一名开发者，你是否也遇到过这些问题：
 
-- Having to repeatedly set up basic infrastructure every time you create a new project?
-- Business code mixed with infrastructure code, difficult to maintain?
-- Different team members have different coding styles, making review costly?
-- Want unified development standards but don't know where to start?
-- As the project grows, module decoupling and collaboration become increasingly difficult?
+- 每次新建项目都要重复搭建基础架构？
+- 业务代码和基础设施代码混杂，难以维护？
+- 团队成员代码风格各异，review 成本高？
+- 想要统一的开发规范，却不知如何下手？
+- 项目规模变大后，模块解耦和协作越来越困难？
 
-If you have these concerns, today's article is a must-read!
-
----
-
-## What is jzero?
-
-**jzero** is an enhanced development tool based on the go-zero framework:
-
-🏗️ **Generate basic framework code through templates**: Automatically generate framework code (api → api framework code, proto → proto framework code, sql/remote database address → model code) based on descriptor files
-
-🤖 **Generate business code through Agent Skills**: Built-in jzero-skills enables AI to generate business logic code that follows best practices
-
-**Core Value and Design Philosophy**:
-
-- ✅ **Developer Experience First**: Provides a simple, easy-to-use, one-stop production-ready solution, one-click initialize api/rpc/gateway projects, minimal commands to generate basic framework code
-- ✅ **AI Empowered**: Built-in jzero-skills enables AI to generate business logic code that follows best practices
-- ✅ **Template-Driven**: Default generation follows best practices, supports custom templates, can build enterprise-specific foundation based on remote template repositories
-- ✅ **Plugin Architecture**: Module layering, plugin design, smoother team collaboration
-- ✅ **Built-in Components**: Includes common tools like cache, migrate, configcenter, condition
-- ✅ **Ecosystem Compatible**: Doesn't modify go-zero, maintains ecosystem compatibility while addressing existing pain points and extending new features
-- ✅ **Flexible Interface**: Doesn't depend on specific database/cache/config center, free choice based on actual needs
+如果你有以上困扰，那么今天的文章绝对不能错过！
 
 ---
 
-GitHub: [https://github.com/jzero-io/jzero](https://github.com/jzero-io/jzero)
+## 什么是 jzero？
 
-Docs: [https://docs.jzero.io](https://docs.jzero.io)
+**jzero** 是基于 go-zero 框架开发的增强型开发工具：
 
-## Basic Framework Code Generation
+🏗️ **通过模板生成基础框架代码**：基于描述文件自动生成框架代码（api → api 框架代码、proto → proto 框架代码、sql/远程数据库地址 → model 代码）
 
-Automatically generate basic framework code based on describable files:
+🤖 **通过 Agent Skills 生成业务代码**：内置 jzero-skills，让 AI 生成符合最佳实践的业务逻辑代码
 
-### api → api framework code
+**核心价值与设计理念**：
+
+- ✅ **开发体验优先**：提供简单好用的一站式生产可用解决方案，一键初始化 api/rpc/gateway 项目，极简指令生成基础框架代码
+- ✅ **AI 赋能**：内置 jzero-skills，让 AI 生成符合最佳实践的业务逻辑代码
+- ✅ **模板驱动**：默认生成即最佳实践，支持自定义模板，可基于远程模板仓库打造企业专属底座
+- ✅ **插件化架构**：模块分层、插件设计，团队协作更顺畅
+- ✅ **内置开发组件**：包含缓存(cache)、数据库迁移(migrate)、配置中心(configcenter)、数据库查询(condition)等常用工具
+- ✅ **生态兼容**：不修改 go-zero，保持生态兼容，解决已有痛点问题并扩展新功能
+- ✅ **接口灵活**：不依赖特定数据库/缓存/配置中心，可根据实际需求自由选择
+
+---
+
+github 地址: [https://github.com/jzero-io/jzero](https://github.com/jzero-io/jzero)
+
+文档地址: [https://docs.jzero.io](https://docs.jzero.io)
+
+## 基础框架代码生成
+
+基于可描述文件自动生成基础框架代码：
+
+### api → api 框架代码
 
 ```go
 info (
-    go_package: "user" // Define generated type folder location
+    go_package: "user" // 定义生成的 type 文件夹位置
 )
 
 type User {
@@ -66,26 +66,26 @@ type PageResponse {
 }
 
 @server (
-    prefix: /api/user        // Route prefix
-    group: user              // Generated handler/logic folder location
-    jwt: JwtAuth             // Enable JWT authentication
-    middleware: AuthX        // Middleware
-    compact_handler: true    // Merge this group's handlers into one file
+    prefix: /api/user        // 路由前缀
+    group: user              // 生成的 handler/logic 文件夹位置
+    jwt: JwtAuth             // 启用 JWT 认证
+    middleware: AuthX        // 中间件
+    compact_handler: true    // 合并该 group 的 handler 到同一个文件
 )
 service userservice {
-    @doc "User pagination"
+    @doc "用户分页"
     @handler Page
     get /page (PageRequest) returns (PageResponse)
 }
 ```
 
-→ Generate Handler, Logic, Types, route registration, middleware, etc.
+→ 生成 Handler、Logic、Types、路由注册、中间件等
 
-**Feature Description**:
-- ✅ `go_package` - Define types folder location, avoid types.go being too large
-- ✅ `compact_handler: true` - Merge handlers of the same group into one file, reduce file count
+**特性说明**：
+- ✅ `go_package` - 定义 types 生成的文件夹位置，避免 types.go 过大
+- ✅ `compact_handler: true` - 同一组的 handler 合并到同一个文件，减少文件数量
 
-### proto → rpc framework code
+### proto → rpc 框架代码
 
 ```proto
 syntax = "proto3";
@@ -93,16 +93,16 @@ syntax = "proto3";
 package user;
 option go_package = "./types/user";
 
-// Import jzero extensions
+// 引入 jzero 扩展
 import "jzero/api/http.proto";
 import "jzero/api/zrpc.proto";
 
 import "google/api/annotations.proto";
 
-// Import common proto
+// 引入公共 proto
 import "common/common.proto";
 
-// Import validation rules
+// 引入验证规则
 import "buf/validate/validate.proto";
 
 message GetUserRequest {
@@ -142,12 +142,12 @@ message GetUserResponse {
 }
 
 service UserService {
-  // Add HTTP middleware for entire service
+  // 为整个 service 添加 HTTP 中间件
   option (jzero.api.http_group) = {
     middleware: "auth,log",
   };
 
-  // Add RPC middleware for entire service
+  // 为整个 service 添加 RPC 中间件
   option (jzero.api.zrpc_group) = {
     middleware: "trace",
   };
@@ -167,17 +167,17 @@ service UserService {
 }
 ```
 
-→ Generate RPC server code, client code, HTTP Gateway, middleware
+→ 生成 RPC 服务端代码、客户端代码、HTTP Gateway、中间件
 
-**Feature Description**:
-- ✅ **Support multiple proto files**: Can define multiple proto files in project (e.g., user.proto, order.proto, product.proto)
-- ✅ Support **importing common proto** files
-- ✅ **One-click generate RPC client**: Generate independent RPC client code, decouple from server, separate server and client
-- ✅ **Built-in field validation**: Automatic parameter validation based on `buf.validate`, supports CEL expressions
-- ✅ **Flexible middleware configuration**: Support configuring HTTP/RPC middleware for entire service or single method
+**特性说明**：
+- ✅ **支持多 proto 文件**：可在项目中定义多个 proto 文件（如 user.proto、order.proto、product.proto）
+- ✅ 支持**引入公共 proto** 文件
+- ✅ **一键生成 RPC 客户端**：生成独立的 RPC 客户端代码，脱离服务端依赖，解耦服务端和客户端
+- ✅ **内置字段验证**：基于 `buf.validate` 实现自动参数校验，支持 CEL 表达式
+- ✅ **灵活中间件配置**：支持为整个 service 或单个 method 配置 HTTP/RPC 中间件
+ 
 
-
-### sql/remote database → Model code
+### sql/远程数据库 → Model 代码
 
 ```sql
 CREATE TABLE `user` (
@@ -188,94 +188,94 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
-→ Generate Model layer code, CRUD operations, supports complex queries
+→ 生成 Model 层代码、CRUD 操作，支持复杂查询
 
-**Feature Description**:
-- ✅ **Multiple data sources**: Support generating model code based on sql files or remote database connections
-- ✅ **Auto-generate CRUD interfaces**: Automatically generate basic operations like create, read, update, delete
-- ✅ **Complex query support**: Provide powerful chain queries for complex business scenarios
-- ✅ **One code adapts to multiple databases**: Generated code compatible with MySQL, PostgreSQL, Sqlite and other databases, no need to regenerate, easily switch underlying database storage
+**特性说明**：
+- ✅ **多种数据源**：支持基于 sql 文件或远程数据库连接生成 model 代码
+- ✅ **自动生成 CRUD 接口**：自动生成增删改查等基础操作
+- ✅ **复杂查询支持**：提供强大的链式查询处理复杂业务场景
+- ✅ **一套代码适配多数据库**：生成的代码兼容 MySQL、PostgreSQL、Sqlite 等多种数据库，无需重新生成，轻松切换数据库底层存储
 
-**Flexible generation strategy**, greatly improving code generation efficiency for large projects:
+**灵活生成策略**，极大提升大型项目代码生成效率：
 
 ```bash
-# Only generate code for files changed in git
+# 只生成 git 改动的文件对应的代码
 jzero gen --git-change
 
-# Generate for specific file
+# 指定文件生成
 jzero gen --desc desc/api/user.api
 ```
 
-**Flexible configuration**, goodbye to complex commands:
+**灵活配置**，告别复杂指令：
 
-Support multiple configuration methods in combination:
-- ✅ Configuration file (.jzero.yaml)
-- ✅ Command-line parameters
-- ✅ Environment variables
+支持多种配置方式自由组合：
+- ✅ 配置文件（.jzero.yaml）
+- ✅ 命令行参数
+- ✅ 环境变量
 
 ```bash
-# Default configuration .jzero.yaml
+# 默认配置 .jzero.yaml
 jzero gen
 
-# Specify configuration file
+# 指定配置文件
 jzero gen --config .jzero.dev.yaml
 ```
 
-One-click switch between local development, testing, and production environments!
+本地开发、测试、生产环境一键切换！
 
-**Hooks Configuration**: Support executing custom scripts before and after code generation
+**Hooks 配置**：支持在代码生成前后执行自定义脚本
 
 ```yaml
 # .jzero.yaml
 
-# Global hooks
+# 全局 hooks
 hooks:
   before:
-    - echo "Execute before jzero command"
+    - echo "执行 jzero 指令前执行"
   after:
-    - echo "Execute after jzero command"
+    - echo "执行 jzero 指令后执行"
 
-# gen command configuration
+# gen 指令配置
 gen:
   hooks:
     before:
-      - echo "Execute before generating code"
+      - echo "执行生成代码前执行"
       - go mod tidy
     after:
-      - echo "Execute after generating code"
+      - echo "执行生成代码后执行"
 ```
 ---
 
-## Generate Business Code Through Agent Skills
+## 通过 Agent Skills 生成业务代码
 
-Based on jzero-skills, let AI automatically generate business code that follows best practices:
+基于 jzero-skills，让 AI 自动生成符合最佳实践的业务代码：
 
 ```bash
-# Output AI Skills configuration to Claude (default ~/.claude/skills)
+# 输出 AI Skills 配置到 Claude（默认 ~/.claude/skills）
 jzero skills init
 
-# Output to current project
+# 输出到当前项目
 jzero skills init --output .claude/skills
 
-# In Claude, describe requirements in natural language, recommend starting with jzero-skills
+# 在 Claude 中用自然语言描述需求, 推荐使用 jzero-skills 开头
 ```
 
-**What can AI do for you**:
+**AI 能帮你做什么**：
 
-**REST API Development**:
-- ✅ Automatically write standard-compliant `.api` files (set `go_package`, `group`, `compact_handler`)
-- ✅ Automatically execute `jzero gen --desc desc/api/xxx.api` to generate framework code
-- ✅ Automatically implement Logic layer business logic, following Handler → Logic → Model three-layer architecture
+**REST API 开发**：
+- ✅ 自动编写符合规范的 `.api` 文件（设置 `go_package`、`group`、`compact_handler`）
+- ✅ 自动执行 `jzero gen --desc desc/api/xxx.api` 生成框架代码
+- ✅ 自动实现 Logic 层业务逻辑，遵循 Handler → Logic → Model 三层架构
 
-**Database Operations**:
-- ✅ Automatically create SQL migration files (xx.up.sql & xx.down.sql)
-- ✅ Automatically execute database migration (`jzero migrate up`)
-- ✅ Automatically generate Model code (`jzero gen --desc desc/sql/xxx.sql`)
+**数据库操作**：
+- ✅ 自动创建 SQL 迁移文件（xx.up.sql & xx.down.sql）
+- ✅ 自动执行数据库迁移（`jzero migrate up`）
+- ✅ 自动生成 Model 代码（`jzero gen --desc desc/sql/xxx.sql`）
 
-**RPC Service Development**:
-- ✅ Automatically write `.proto` files to define service interfaces
-- ✅ Automatically generate RPC server and client code
-- ✅ Automatically implement server business logic, following Handler → Logic → Model three-layer architecture
+**RPC 服务开发**：
+- ✅ 自动编写 `.proto` 文件定义服务接口
+- ✅ 自动生成 RPC 服务端和客户端代码
+- ✅ 自动实现服务端业务逻辑，遵循 Handler → Logic → Model 三层架构
 
 ---
 
@@ -284,99 +284,99 @@ jzero skills init --output .claude/skills
 </video>
 
 
-## Plugin Architecture
+## 插件化架构
 
-Support **plugin development**, loading functional modules as independent plugins:
+支持**插件化开发**，将功能模块作为独立插件加载：
 
 ```bash
-# Create helloworld api service
+# 创建 helloworld api 服务
 jzero new helloword --frame api
 
 cd helloworld
 
-# Add api plugin
+# 增加 api 插件
 jzero new plugin_name --frame api --serverless
 
-# Add api plugin (mono type, use helloworld's go module)
+# 增加 api 插件(mono类型，即使用 helloworld 的 go module)
 jzero new plugin_name_mono --frame api --serverless --mono
 
-# Build and load all plugins
+# 编译并加载所有插件
 jzero serverless build
 
-# Unload all plugins
+# 卸载所有插件
 jzero serverless delete
 
-# Unload specific plugin
+# 卸载指定插件
 jzero serverless delete --plugin plugin_name
 ```
 
-**Perfectly supports**:
+**完美支持**：
 
-- 📦 Functional module decoupling, independent development and testing
-- 👥 Team collaboration, different teams responsible for different plugins
-- 🔄 Load on demand, flexible assembly of functions
+- 📦 功能模块解耦，独立开发和测试
+- 👥 团队协作，不同团队负责不同插件
+- 🔄 按需加载，灵活组装功能
 
 ---
 
-## Quick Experience, Get Started in 5 Minutes
+## 快速体验，5 分钟上手
 
 ```bash
-# 1. Install jzero
+# 1. 安装 jzero
 go install github.com/jzero-io/jzero/cmd/jzero@latest
 
-# 2. One-click environment check
+# 2. 一键检查环境
 jzero check
 
-# 3. Create project
-# api project
+# 3. 创建项目
+# api 项目
 jzero new helloworld --frame api
-# rpc project
+# rpc 项目
 jzero new helloworld --frame rpc
-# gateway project
+# gateway 项目
 jzero new helloworld --frame gateway
 
 cd helloworld
 
-# Download dependencies
+# 下载依赖
 go mod tidy
 
-# Run service
+# 运行服务
 go run main.go server
 
-# Built-in Swagger UI
+# 内置 Swagger UI
 # http://localhost:8001/swagger
 ```
 
 ---
 
-## Related Ecosystem
+## 相关生态
 
-### jzero-intellij IDE Plugin
+### jzero-intellij IDE 插件
 
-If you are a **GoLand / IntelliJ IDEA** user, **jzero-intellij plugin** will greatly enhance your development experience!
+如果你是 **GoLand / IntelliJ IDEA** 用户，**jzero-intellij 插件**将极大提升你的开发体验！
 
-**Core Features**:
-- ✅ One-click create descriptor files api/proto/sql
-- ✅ API file intelligent highlighting
-- ✅ File navigation, jump between api/proto and logic files
-- ✅ Descriptor file line header execution button to generate code
-- ✅ Configuration file .jzero.yaml execution button to generate code
+**核心功能**：
+- ✅ 一键创建可描述文件 api/proto/sql
+- ✅ api 文件智能高亮
+- ✅ 文件跳转，api/proto 与 logic 文件互相跳转
+- ✅ 可描述文件行首执行按钮生成代码
+- ✅ 配置文件 .jzero.yaml 增加执行按钮生成代码
 
 <video width="720" height="450" controls>
   <source src="https://oss.jaronnie.com/jzero-intellij.mp4" type="video/mp4">
 </video>
 
-**Download**: https://github.com/jzero-io/jzero-intellij/releases
+**下载地址**：https://github.com/jzero-io/jzero-intellij/releases
 
-### jzero-admin Backend Management System
+### jzero-admin 后台管理系统
 
-Backend management system based on jzero, built-in RBAC permission management, ready to use
+基于 jzero 的后台管理系统，内置 RBAC 权限管理，开箱即用
 
-**Core Features**:
-- ✅ Complete permission system (user/menu/role)
-- ✅ Multi-database support (MySQL/PostgreSQL/SQLite)
-- ✅ Backend plugin support
-- ✅ Internationalization support
+**核心特性**：
+- ✅ 完整权限系统(用户/菜单/角色)
+- ✅ 多数据库支持(MySQL/PostgreSQL/SQLite)
+- ✅ 后端插件化
+- ✅ 国际化支持
 
 ![](https://oss.jaronnie.com/image-20251217134305041.png)
 
@@ -384,15 +384,15 @@ Backend management system based on jzero, built-in RBAC permission management, r
 
 ![](https://oss.jaronnie.com/image-20251217134400658.png)
 
-**Online Demo**:
+**在线演示**：
 
-- Aliyun Function Compute: [https://jzero-admin.jaronnie.com](https://jzero-admin.jaronnie.com)
-- Vercel: [https://admin.jzero.io](https://admin.jzero.io)
+- 阿里云云函数：[https://jzero-admin.jaronnie.com](https://jzero-admin.jaronnie.com)
+- Vercel：[https://admin.jzero.io](https://admin.jzero.io)
 
-**GitHub**: [https://github.com/jzero-io/jzero-admin](https://github.com/jzero-io/jzero-admin)
+**GitHub**：[https://github.com/jzero-io/jzero-admin](https://github.com/jzero-io/jzero-admin)
 
-# In Conclusion
+# 写在最后
 
-**jzero's mission is to make Go development simpler and more efficient. If interested, join us to explore new possibilities in Go development!** 🎉
+**jzero 的使命是让 Go 开发更简单、更高效。如果有兴趣，可以加入我们，一起探索 Go 开发的新可能！** 🎉
 
-**Find it useful? Please give jzero a ⭐ Star to support our continued improvement!**
+**觉得有用？也请给 jzero 一个 ⭐ Star，支持我们继续改进！**

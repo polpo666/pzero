@@ -1,68 +1,71 @@
 ---
 home: false
 icon: fluent:home-heart-20-filled
-title: Home
+title: 首页
 ---
 
 <div style="text-align: center;">
   <img src="/favicon.ico" style="width: 33%;" alt=""/>
 </div>
 
-## Introduction
+## 简介
 
-**pzero** is a framework developed based on the [go-zero framework](https://github.com/zeromicro/go-zero) and [go-zero/goctl tools](https://github.com/zeromicro/go-zero/tree/master/tools/goctl). It enables one-click initialization of api/gateway/rpc projects.
+基于 [go-zero框架](https://github.com/zeromicro/go-zero) 以及 [go-zero/goctl工具](https://github.com/zeromicro/go-zero/tree/master/tools/goctl) 开发的 [pzero](https://github.com/polpo666/pzero) 框架, 可一键初始化 api/gateway/rpc 项目。
 
-Based on describable files (**api/proto/sql**), it automatically generates **server-side and client-side** framework code. Combined with built-in pzero-skills, it empowers AI to generate business logic code that follows best practices, reducing development cognitive load and freeing your hands!
+基于可描述文件(**api/proto/sql**)自动生成**服务端和客户端**框架代码, 基于内置的 pzero-skills 让 AI 生成符合最佳实践的业务逻辑代码，降低开发心智, 解放双手!
 
-Key features include:
+具备以下特点:
 
-* Supports flexible control of pzero configurations through combinations of **configuration files/command-line parameters/environment variables**, with minimal commands to generate code, AI-friendly
-* Supports generating code based on **git-changed files** or specific descriptor files, or ignoring specific descriptor files, improving code generation efficiency for large projects
-* Built-in common development templates with enhanced template features, supports **custom templates** to build proprietary enterprise code templates, significantly reducing development costs
-* Supports **plugin architecture**, where functional modules can be dynamically loaded as independent plugins, supporting plugin creation, compilation, and uninstallation, perfectly adapted for team collaboration and module decoupling
+* 支持通过**配置文件/命令行参数/环境变量**组合的方式灵活控制 pzero 的各项配置, 极简指令生成代码, ai 友好
+* 支持基于 **git 对改动文件**生成代码, 支持对**指定描述文件**生成代码或**忽略指定描述文件**生成代码, 提升大型项目代码生成效率
+* 内置常用开发模板并增强模板特性, 支持**自定义模板**, 构建专属企业内部代码模板, 极大降低开发成本
+* 支持**插件化架构**, 功能模块可作为独立插件动态加载, 支持插件创建、编译和卸载, 完美适配团队协作和模块解耦
 
-For more details, please visit: [https://polpo666.github.io/pzero/](https://polpo666.github.io/pzero/)
+更多详情请参阅：[https://polpo666.github.io/pzero/](https://polpo666.github.io/pzero/)
 
-## Design Philosophy
+## 设计理念
 
-* **Developer Experience**: Provides a simple, easy-to-use, one-stop production-ready solution that enhances the development experience
-* **Template-Driven**: All code generation is based on template rendering, with default generation following best practices, and supports custom template content
-* **Ecosystem Compatibility**: Does not modify go-zero and go-zero/goctl, maintains ecosystem compatibility while addressing existing pain points and extending new features
-* **Team Development**: Through module **layering** and **plugin** design, it's friendly to team development
-* **Interface Design**: Does not depend on specific databases/cache/config centers and other infrastructure, allowing free choice based on actual needs
+* **开发体验**: 提供简单好用的一站式生产可用的解决方案, 提升开发体验感
+* **模板驱动**: 所有代码生成均基于模板渲染, 默认生成即最佳实践, 且支持自定义模板内容
+* **生态兼容**: 不修改 go-zero 和 go-zero/goctl, 保持生态兼容, 同时解决已有的痛点问题并扩展新的功能
+* **团队开发**: 通过模块**分层**, **插件**设计, 团队开发友好
+* **接口设计**: 不依赖特定数据库/缓存/配置中心等基础设施, 根据实际需求自由选择
 
-## Quick Start
+## 快速开始
 
 ::: code-tabs#shell
 @tab pzero cli
 
 ```bash
-# Install pzero
+# 安装 pzero
 go install github.com/polpo666/pzero/cmd/pzero@latest
-# One-click install required tools
+# 一键安装所需的工具
 pzero check
-# One-click create project
+# 一键创建项目
 pzero new your_project
 cd your_project
-# Download dependencies
+# 下载依赖
 go mod tidy
-# Start server
+# 启动服务端程序
 go run main.go server
-# Visit swagger ui
+# 访问 swagger ui
 http://localhost:8001/swagger
 ```
 
 @tab pzero Docker
 
 ```bash
-# One-click create project
+# 一键创建项目
 docker run --rm -v ${PWD}:/app ghcr.io/polpo666/pzero:latest new your_project
 cd your_project
-# Download dependencies
+# 下载依赖
 go mod tidy
-# Start server
+# 启动服务端程序
 go run main.go server
-# Visit swagger ui
+# 访问 swagger ui
 http://localhost:8001/swagger
 ```
 :::
+
+
+

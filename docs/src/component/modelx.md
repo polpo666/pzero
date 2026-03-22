@@ -1,12 +1,12 @@
 ---
-title: modelx(Database connection)
+title: modelx(数据库连接)
 icon: oui:vis-query-sql
 order: 2
 ---
 
-## Features
+## 特性
 
-* Adapts to mysql/postgres/sqlite, no need to import drivers
+* 适配 mysql/postgres/sqlite, 无需导入驱动
 
 ::: code-tabs#shell
 
@@ -37,10 +37,10 @@ func main() {
 
 	sqlConn := modelx.MustNewConn(cc.MustGetConfig().Sqlx)
 
-	// connect database
+	// 连接数据库
 	sqlConn := modelx.MustNewConn(cc.MustGetConfig().Sqlx)
 
-	// execute sql
+	// 执行 sql
 	result, err := sqlConn.ExecCtx(context.Background(), "select 1")
 	if err != nil {
 		panic(err)

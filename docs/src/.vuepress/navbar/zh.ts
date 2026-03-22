@@ -2,9 +2,9 @@
 import { navbar } from "vuepress-theme-hope";
 
 // @ts-ignore
-export const zhNavbar = navbar([
+export const navbarConfig = navbar([
   {
-    link: "/zh-CN/blog/",
+    link: "/blog/",
     text: "博客",
     icon: "fluent-mdl2:blog"
   },

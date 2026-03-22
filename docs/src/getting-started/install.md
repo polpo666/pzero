@@ -1,63 +1,63 @@
 ---
-title: Install pzero
+title: 安装 pzero
 icon: marketeq:download-alt-4
 order: 2
 ---
 
-## Install golang
+## 安装 golang
 
-Recommend using [gvm](https://github.com/jaronnie/gvm) to install golang environment
+推荐采用 [gvm](https://github.com/jaronnie/gvm) 安装 golang 环境
 
-## Install pzero
+## 安装 pzero
 
-Provides the following three ways to use pzero, choose one based on your actual situation
+提供以下三种方式使用 pzero, 请根据实际情况任选一种即可
 
-* Source installation(**go version >= go1.26.1**)
-* Directly [download pzero binary](https://github.com/polpo666/pzero/releases)
-* Install pzero based on Docker, [image address](https://github.com/polpo666/pzero/pkgs/container/pzero)
+* 源码安装(**go version >= go1.26.1**)
+* 直接[下载 pzero 二进制文件](https://github.com/polpo666/pzero/releases)
+* 基于 Docker 安装 pzero, [镜像地址](https://github.com/polpo666/pzero/pkgs/container/pzero)
 
-### Install pzero from source
+### 源码安装 pzero
 
 ```bash
-# Set domestic proxy (optional)
+# 设置国内代理(可选)
 # go env -w GOPROXY=https://goproxy.cn,direct
 go install github.com/polpo666/pzero/cmd/pzero@latest
 
-# Get pzero version
+# 获取 pzero 版本信息
 pzero version
 
-# Auto download required tools
+# 自动下载所依赖的工具
 pzero check
 ```
 
-### Download pzero binary
+### 下载 pzero 二进制文件
 
-[Download address](https://github.com/polpo666/pzero/releases)
+[下载地址](https://github.com/polpo666/pzero/releases)
 
-Select the corresponding package based on your operating system, extract and place in `$GOPATH/bin` directory
+根据自己的操作系统选择对应的压缩包, 解压后放在 `$GOPATH/bin` 目录下即可
 
-Execute the following to complete pzero environment setup
+执行以下内容完成 pzero 的环境准备
 
 ```shell
-# Get pzero version
+# 获取 pzero 版本信息
 pzero version
 
-# Auto download required tools
+# 自动下载所依赖的工具
 pzero check
 ```
 
-### Install pzero based on Docker
+### 基于 Docker 安装 pzero
 
 ```shell
-# Get pzero version
+# 获取 pzero 版本信息
 docker run --rm ghcr.io/polpo666/pzero:latest version
 ```
 
-## Upgrade pzero
+## 升级 pzero
 
 ```shell
-# Upgrade to latest version
+# 升级为最新版
 pzero upgrade
-# Upgrade to specific version
-pzero upgrade --channel <commit_hash> or <tag>
+# 升级到指定版本 
+pzero upgrade --channel <commit_hash> 或 <tag>
 ```

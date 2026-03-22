@@ -1,8 +1,8 @@
 // @ts-ignore
 import { sidebar } from "vuepress-theme-hope";
 
-export const zhSidebarConfig = sidebar({
-    "/zh-CN/": [
+export const sidebarConfig = sidebar({
+    "/": [
         "",
         {
             text: "快速开始",

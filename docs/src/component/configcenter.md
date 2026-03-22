@@ -1,10 +1,10 @@
 ---
-title: configcenter(Configuration center)
+title: configcenter(配置中心)
 icon: catppuccin:astro-config
 order: 1
 ---
 
-## fsnotify implementation
+## fsnotify 实现
 
 ::: code-tabs#shell
 
@@ -31,22 +31,22 @@ func main() {
 		subscriber.MustNewFsnotifySubscriber("etc/etc.yaml"),
 	)
 
-	// support environment variables
+	// 支持环境变量
 	cc = configcenter.MustNewConfigCenter[Config](
 		configcenter.Config{Type: "yaml"},
 		subscriber.MustNewFsnotifySubscriber("etc/etc.yaml", subscriber.WithUseEnv(true)),
 	)
 
-	// set config change callback
+	// 设置配置变更回调
 	cc.AddListener(func() {})
 
-	// get config
+	// 获取配置
 	cfg, err := cc.GetConfig()
 	if err != nil {
 		panic(err)
 	}
 
-	// must get config
+	// 必须获取配置
 	cfg = cc.MustGetConfig()
 
 	fmt.Println(cfg)
@@ -64,21 +64,21 @@ sqlx:
 
 :::
 
-### Using environment variables
+### 使用环境变量
 
 :::tip
-Refer to [envsubst](https://github.com/a8m/envsubst) for more environment variable settings
+参考 [envsubst](https://github.com/a8m/envsubst) 查看更多环境变量的设置方法
 :::
 
 ```yaml
 sqlx:
-    # get sqlx datasource from DATASOURCE, defaults to jzero-admin.db if not set
+    # 从 DATASOURCE 获取 sqlx 的 datasource 配置, 未配置则为 jzero-admin.db
     datasource: "${DATASOURCE:-jzero-admin.db}"
-    # get sqlx driverName from DRIVER_NAME, defaults to sqlite if not set
+    # 从 DRIVER_NAME 获取 sqlx 的 driverName 配置, 未配置则为 sqlite
     driverName: "${DRIVER_NAME:-sqlite}"
 ```
 
-## etcd implementation
+## etcd 实现
 
 ::: code-tabs#shell
 
@@ -108,16 +108,16 @@ func main() {
 		}),
 	)
 
-	// set config change callback
+	// 设置配置变更回调
 	cc.AddListener(func() {})
 
-	// get config
+	// 获取配置
 	cfg, err := cc.GetConfig()
 	if err != nil {
 		panic(err)
 	}
 
-	// must get config
+	// 必须获取配置
 	cfg = cc.MustGetConfig()
 
 	fmt.Println(cfg)

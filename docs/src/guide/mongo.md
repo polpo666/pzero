@@ -1,29 +1,29 @@
 ---
-title: mongodb guide
+title: mongodb 指南
 icon: devicon-plain:mongodb-wordmark
 star: true
 order: 5
 ---
 
-## Introduction
+## 前言
 
-jzero supports generating code to `internal/mongo` by specifying mongo type.
+jzero 支持通过指定 mongo type 将代码到 `internal/mongo` 下.
 
-For easier usage, jzero automatically generates `internal/mongo/model.go` file to register all generated mongo models.
+为了在使用上更加方便, jzero 自动生成了 `internal/mongo/model.go` 文件, 用于注册所有生成的 mongo model.
 
-## Features
+## 特性
 
-* Supports redis and custom cache
+* 支持 redis 和自定义缓存
 
-## Generate code
+## 生成代码
 
 ```yaml
 gen:
-    # specify mongo type
+    # 指定 mongo type
     mongo-type: ["user", "role", "menu"]
-    # whether cache is needed
+    # 是否需要缓存
     mongo-cache: true
-    # specify which types need cache
+    # 指定哪些类型需要缓存
     mongo-cache-type:
       - user
 ```

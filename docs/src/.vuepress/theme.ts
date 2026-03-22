@@ -1,7 +1,7 @@
 // @ts-ignore
 import { hopeTheme } from "vuepress-theme-hope";
-import { enNavbar, zhNavbar } from "./navbar/index.js";
-import { enSidebarConfig, zhSidebarConfig } from "./sidebar/index.js";
+import { navbarConfig } from "./navbar/index.js";
+import { sidebarConfig } from "./sidebar/index.js";
 
 // @ts-ignore
 export default hopeTheme({
@@ -27,10 +27,10 @@ export default hopeTheme({
   locales: {
     "/": {
       // 导航栏
-      navbar: enNavbar,
+      navbar: navbarConfig,
 
       // 侧边栏
-      sidebar: enSidebarConfig,
+      sidebar: sidebarConfig,
 
       // 页脚
       footer: "",
@@ -39,17 +39,6 @@ export default hopeTheme({
       // Page meta
       metaLocales: {
         editLink: "在 GitHub 上编辑此页",
-      },
-    },
-    "/zh-CN/": {
-      // 导航栏
-      navbar: zhNavbar,
-
-      sidebar: zhSidebarConfig,
-
-      // Page meta
-      metaLocales: {
-        editLink: "Edit this page on GitHub",
       },
     },
   },

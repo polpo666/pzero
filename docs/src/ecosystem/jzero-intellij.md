@@ -1,27 +1,27 @@
 ---
-title: jzero-intellij(goland plugin)
+title: jzero-intellij(goland 插件)
 icon: catppuccin:folder-admin
 order: 2
 ---
 
-goland + jzero plugin greatly enhances development experience
+goland + jzero 插件, 能极大提升开发体验感
 
-## Install jzero plugin
+## 安装 jzero 插件
 
-[Download](https://github.com/jzero-io/jzero-intellij/releases)
+[下载地址](https://github.com/jzero-io/jzero-intellij/releases)
 
 ![](https://oss.jaronnie.com/image-20251217111538091.png)
 
-## Features
+## 功能特性
 
-* Add api/proto/sql files
-* API file highlighting/navigation
-* api/proto file navigation to logic file
-* logic file navigation to api/proto file
-* Add execution button at line start of api/proto/sql files to generate code
-* Add execution button in .jzero.yaml file to generate code
+* 新增 api/proto/sql 文件
+* api 文件高亮/跳转等
+* api/proto 文件跳转至 logic 文件
+* logic 文件跳转至 api/proto 文件
+* api/proto/sql 文件行首增加执行按钮生成代码
+* .jzero.yaml 文件增加执行按钮生成代码
 
-## Demo
+## 效果展示
 
 <video width="720" height="450" controls>
   <source src="https://oss.jaronnie.com/jzero-intellij.mp4" type="video/mp4">
@@ -33,11 +33,11 @@ goland + jzero plugin greatly enhances development experience
 
 ### v1.0.1(2026.01.05)
 
-* Optimized api file navigation to logic
+* 优化 api 文件跳转到 logic
 
 ### v1.1.0
 
 :::important requires jzero >= v1.1.0
 :::
 
-* Support navigation from logic file to api/proto file
+* 支持从 logic 文件跳转到 api/proto 文件

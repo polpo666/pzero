@@ -1,148 +1,28 @@
 ---
-title: Plugin guide
+title: 插件指南
 icon: arcticons:game-plugins
 star: true
 order: 5.4
 ---
 
-jzero supports plugin mechanism, making it easy to install and uninstall plugins.
+pzero 生成的新 frame 项目已经不再把基于 serverless 的插件脚手架作为推荐路径。
 
-The key point is **multi-module collaborative development**, finally compiled into **monolithic service deployment**.
+## 当前状态
 
-## Add plugin (using api project as example)
+* 新的 pzero frame 模板不再把 `--serverless` 作为主要插件工作流来文档化
+* 旧的 jzero 项目中可能仍然保留历史 serverless/plugin 结构，但新项目应以 `pzero new` 当前生成的模板为准
+* 如果新项目需要扩展能力，建议基于现有模板里的 `plugins` 集成点和普通模块边界来设计，而不是继续沿用旧的 serverless 目录布局
+
+## 推荐做法
+
+对于新项目，使用正常的 frame 初始化和代码生成流程：
 
 ```bash
-# Add new api project
-jzero new simpleapi
-# Enter project directory
-cd simpleapi
-# Add api project plugin (independent go module)
-jzero new your_plugin --frame api --serverless
-# Add api project plugin (share go module with main service simpleapi)
-jzero new your_mono_plugin --frame api --serverless --mono
-# Execute serverless build, main service takes over plugin routes (plugins/plugins.go)
-jzero serverless build
-# Download dependencies
+pzero new your_project --frame api
+cd your_project
 go mod tidy
-# Large monolithic build output
-go build
+pzero add api demo
+pzero gen
 ```
 
-## Uninstall plugin
-
-```shell
-# Uninstall all, main service no longer takes over plugin routes
-jzero serverless delete
-
-# Uninstall specific plugin
-jzero serverless delete --plugin <plugin-name>
-
-# Rebuild
-go build
-```
-
-## Project structure
-
-```bash
-simpleapi
-├── Dockerfile
-├── README.md
-├── cmd
-│   ├── root.go
-│   ├── server.go
-│   └── version.go
-├── desc
-│   ├── api
-│   │   └── version.api
-│   └── swagger
-│       ├── swagger.json
-│       └── version.swagger.json
-├── etc
-│   └── etc.yaml
-├── go.mod
-├── go.sum
-├── go.work
-├── go.work.sum
-├── internal
-│   ├── config
-│   │   └── config.go
-│   ├── custom
-│   │   └── custom.go
-│   ├── handler
-│   │   ├── routes.go
-│   │   └── version
-│   │       └── version.go
-│   ├── logic
-│   │   └── version
-│   │       └── version.go
-│   ├── middleware
-│   │   ├── middleware.go
-│   │   ├── response.go
-│   │   └── validator.go
-│   ├── svc
-│   │   ├── config.go
-│   │   ├── middleware.go
-│   │   └── servicecontext.go
-│   └── types
-│       ├── types.go
-│       └── version
-│           └── types.go
-├── main.go
-└── plugins
-    ├── plugins.go
-    ├── your_mono_plugin
-    │   ├── Dockerfile
-    │   ├── README.md
-    │   ├── cmd
-    │   │   ├── root.go
-    │   │   ├── server.go
-    │   │   └── version.go
-    │   ├── etc
-    │   │   └── etc.yaml
-    │   ├── internal
-    │   │   ├── config
-    │   │   │   └── config.go
-    │   │   ├── custom
-    │   │   │   └── custom.go
-    │   │   ├── handler
-    │   │   │   └── routes.go
-    │   │   ├── middleware
-    │   │   │   ├── middleware.go
-    │   │   │   ├── response.go
-    │   │   │   └── validator.go
-    │   │   └── svc
-    │   │       ├── config.go
-    │   │       ├── middleware.go
-    │   │       └── servicecontext.go
-    │   ├── main.go
-    │   └── serverless
-    │       └── serverless.go
-    └── your_plugin
-        ├── Dockerfile
-        ├── README.md
-        ├── cmd
-        │   ├── root.go
-        │   ├── server.go
-        │   └── version.go
-        ├── etc
-        │   └── etc.yaml
-        ├── go.mod
-        ├── internal
-        │   ├── config
-        │   │   └── config.go
-        │   ├── custom
-        │   │   └── custom.go
-        │   ├── handler
-        │   │   └── routes.go
-        │   ├── middleware
-        │   │   ├── middleware.go
-        │   │   ├── response.go
-        │   │   └── validator.go
-        │   └── svc
-        │       ├── config.go
-        │       ├── middleware.go
-        │       └── servicecontext.go
-        ├── main.go
-        └── serverless
-            └── serverless.go
-```
+如果你维护的是仍然使用旧版 serverless/plugin 结构的历史 jzero 项目，可以把那套布局视为兼容模式，而不是 pzero 当前默认架构。

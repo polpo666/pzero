@@ -1,15 +1,15 @@
 ---
-title: Database version automatic migration
+title: 数据库版本自动迁移
 icon: carbon:migrate
 star: true
 order: 5.5
 ---
 
-* jzero implements database migration capability based on [migrate](https://github.com/golang-migrate/migrate)
-* jzero detects files under desc/sql_migration directory by default, executes migration
-* Refer to [best practices](https://github.com/golang-migrate/migrate/blob/master/MIGRATIONS.md) on how to write database migration files
+* jzero 基于 [migrate](https://github.com/golang-migrate/migrate) 实现数据库迁移能力
+* jzero 默认检测 desc/sql_migration 目录下的文件, 执行迁移
+* 参考 [最佳实践](https://github.com/golang-migrate/migrate/blob/master/MIGRATIONS.md) 如何编写数据库迁移文件
 
-## Configuration
+## 配置
 
 ```yaml
 migrate:
@@ -17,31 +17,31 @@ migrate:
   datasource-url: "root:123456@tcp(127.0.0.1:3306)/jzero-admin"
 ```
 
-## Upgrade
+## 升级
 
 ```shell
-# Upgrade to latest by default
+# 默认升级到最新
 jzero migrate up
-# Upgrade n migrations
+# 升级 n 个 migrations
 jzero migrate up 3
 ```
 
-## Rollback
+## 回滚
 
 ```shell
-# Rollback all by default
+# 默认回滚所有
 jzero migrate down
-# Rollback n migrations
+# 回滚 n 个 migrations
 jzero migrate down 3
 ```
 
-## Get version
+## 获取版本
 
 ```shell
 jzero migrate version
 ```
 
-## Force rollback to specific version
+## 强制回滚到某个版本
 
 ```shell
 jzero migrate goto <your_version>

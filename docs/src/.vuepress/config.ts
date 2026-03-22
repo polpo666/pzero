@@ -7,11 +7,6 @@ export default defineUserConfig({
 
   locales: {
     "/": {
-      lang: "en-US",
-      title: "Pzero Framework",
-      description: "Pzero docs",
-    },
-    "/zh-CN/": {
       lang: "zh-CN",
       title: "Pzero Framework",
       description: "Pzero docs",

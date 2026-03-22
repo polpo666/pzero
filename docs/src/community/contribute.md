@@ -1,17 +1,17 @@
 ---
-title: Welcome to Contribute👏
+title: 欢迎贡献👏
 icon: ooui:user-contributions-ltr
 star: true
 order: 30
 ---
 
-Welcome to participate in pzero's development and maintenance. This is a very meaningful thing. Let's make pzero better together.
+欢迎参与 pzero 的开发以及维护, 这是一件非常有意义的事情, 让我们一起让 pzero 变得更好.
 
-## Steps
+## 步骤
 
 ### 1. fork pzero
 
-[Click here to fork](https://github.com/polpo666/pzero/fork)
+[点击这里 fork](https://github.com/polpo666/pzero/fork)
 
 ### 2. clone
 
@@ -54,7 +54,7 @@ Create your pull request!!!
 
 ## debug pzero
 
-1. After forking pzero and cloning pzero locally
+1. fork pzero 并 clone pzero 到本地后
 
 ```shell
 cd pzero
@@ -75,8 +75,15 @@ pzero gen --debug --debug-sleep-time 15
 
 4. attach pzero process
 
-It's recommended to use goland, attach to pzero's process for debugging, as shown below:
+推荐采用 goland, 使用 attach 到 pzero 的进程中, 即可 debug, 如下所示:
 
 <video width="720" height="450" controls>
   <source src="https://oss.jaronnie.com/iShot_2024-09-20_09.22.54.mp4" type="video/mp4">
 </video>
+
+
+
+
+
+
+

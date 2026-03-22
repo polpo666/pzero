@@ -1,14 +1,14 @@
 ---
-title: cache(Cache connection)
+title: cache(缓存连接)
 icon: octicon:cache-16
 order: 2.1
 ---
 
-## Features
+## 特性
 
-* Interface design, easy to extend later
-* Supports cache prefix
-* Uses redis implementation by default for cache interface
+* 接口设计, 后期好扩展
+* 支持 cache prefix
+* 默认使用 redis 实现 cache 接口
 
 ::: code-tabs#shell
 
@@ -39,19 +39,19 @@ func main() {
 		subscriber.MustNewFsnotifySubscriber("etc/etc.yaml"),
 	)
 
-	// connect redis
+	// 连接 redis
 	rds, err := redis.NewRedis(cc.MustGetConfig().Redis)
 	if err != nil {
 		panic(err)
 	}
 
-	// create cache from redis, set default cache time 5 seconds
+	// 从 redis 新建缓存, 设置默认缓存时间 5 秒
 	redisCache := cache.NewRedisNode(rds, errors.New("cache not found"), cache.WithExpiry(time.Duration(5)*time.Second))
-
-	// with cachePrefix
+	
+	// 带 cachePrefix
 	redisCache = cache.NewRedisNodeWithCachePrefix(rds, errors.New("cache not found"), "jzero:",cache.WithExpiry(time.Duration(5)*time.Second))
 
-	// get data with key name
+	// 获取 key 为 name 的数据
 
 	var value string
 	if err = redisCache.GetCtx(context.Background(), "name", &value); err != nil {
@@ -71,3 +71,4 @@ redis:
 ```
 
 :::
+
