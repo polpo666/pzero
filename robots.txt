@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://docs.jzero.io/sitemap.xml
+Sitemap: https://polpo666.github.io/pzero/pzero/sitemap.xml
