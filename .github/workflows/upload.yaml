@@ -45,15 +45,6 @@ jobs:
           pzero gen
           go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
-          pzero new helloworld --serverless --mono
-          cd plugins/helloworld
-          pzero add api helloworld
-          pzero gen
-          go get github.com/polpo666/pzero@${{ github.sha }}
-          go mod tidy
-          cd ../..
-          pzero serverless build
-          go mod tidy
           pzero gen swagger
           pzero format --git-change=false
           go run main.go version
@@ -87,15 +78,6 @@ jobs:
           pzero gen
           go get github.com/polpo666/pzero@${{ github.sha }}
           go mod tidy
-          pzero new helloworld --frame gateway --serverless --mono
-          cd plugins/helloworld
-          pzero add proto helloworld
-          pzero gen
-          go get github.com/polpo666/pzero@${{ github.sha }}
-          go mod tidy
-          cd ../..
-          pzero serverless build
-          go mod tidy
           pzero gen swagger
           pzero gen zrpcclient
           pzero format --git-change=false
@@ -128,16 +110,8 @@ jobs:
           pzero new simplerpc --frame rpc
           cd simplerpc
           pzero add proto user
-          go get github.com/polpo666/pzero@${{ github.sha }}
-          go mod tidy
-          pzero new helloworld --frame rpc --serverless --mono
-          cd plugins/helloworld
-          pzero add proto helloworld
           pzero gen
           go get github.com/polpo666/pzero@${{ github.sha }}
-          go mod tidy
-          cd ../..
-          pzero serverless build
           go mod tidy
           pzero gen swagger
           pzero gen zrpcclient
